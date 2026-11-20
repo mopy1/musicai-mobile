@@ -20,7 +20,6 @@ expo-env.d.ts
 *.mobileprovision
 
 # Secretos y configuración local
-google-services.json
 .env
 .env.local
 .env.*.local

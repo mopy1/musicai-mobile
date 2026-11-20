@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "211586595451",
+    "firebase_url": "https://sw-proyectofinal-default-rtdb.firebaseio.com",
+    "project_id": "sw-proyectofinal",
+    "storage_bucket": "sw-proyectofinal.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211586595451:android:9dc6ff6e1fcd31d62cc0de",
+        "android_client_info": {
+          "package_name": "com.musicai.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAla_b5L-HhrqPJAk1Hpb5Tt1ZvZdskOFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
