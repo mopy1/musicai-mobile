@@ -1,0 +1,34 @@
+# Dependencias
+node_modules/
+
+# Expo y builds nativos generados (CNG)
+.expo/
+android/
+ios/
+dist/
+web-build/
+expo-env.d.ts
+
+# Artefactos Android
+*.apk
+*.aab
+*.jks
+*.keystore
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Secretos y configuración local
+google-services.json
+.env
+.env.local
+.env.*.local
+
+# Cachés y logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+.metro-health-check*
+*.tsbuildinfo
+.DS_Store
