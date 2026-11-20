@@ -62,10 +62,11 @@ export async function registerNativeFcmToken(): Promise<PushRegistrationResult> 
     const devicePush = await Notifications.getDevicePushTokenAsync();
     token = typeof devicePush.data === 'string' ? devicePush.data : undefined;
   } catch (err) {
+    const rawMsg = err instanceof Error ? err.message : '';
     const msg =
-      err instanceof Error
-        ? err.message
-        : 'Push nativo FCM no disponible en esta compilación.';
+      rawMsg.includes('FirebaseApp') || rawMsg.includes('googleServicesFile')
+        ? 'Falta compilar el APK con google-services.json para activar las notificaciones push FCM.'
+        : rawMsg || 'Push nativo FCM no disponible en esta compilación.';
     return {
       status: 'unavailable',
       message: msg,

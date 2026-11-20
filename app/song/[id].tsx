@@ -92,7 +92,7 @@ export default function SongDetailScreen() {
     (song.source_type === 'generated' || song.source_type === 'hummed' || !song.is_public);
 
   return (
-    <SafeAreaView edges={['top']} className="flex-1 bg-night">
+    <SafeAreaView edges={['top', 'bottom']} className="flex-1 bg-night">
       <View className="flex-row items-center gap-2 px-4 py-2">
         <Pressable
           onPress={() => router.back()}

@@ -97,7 +97,7 @@ export default function FaceSwapDetailScreen() {
   const meta = job ? STATUS_META[job.status] ?? STATUS_META.processing : null;
 
   return (
-    <SafeAreaView edges={['top']} className="flex-1 bg-night">
+    <SafeAreaView edges={['top', 'bottom']} className="flex-1 bg-night">
       <View className="flex-row items-center gap-2 px-4 py-2">
         <Pressable
           onPress={() => router.back()}
