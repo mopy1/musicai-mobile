@@ -126,7 +126,14 @@ export async function apiRequest<T>(
       body: body === undefined ? undefined : isFormData ? body : JSON.stringify(body),
       signal,
     });
-  } catch {
+  } catch (err) {
+    const detail = err instanceof Error ? err.message : '';
+    if (
+      detail &&
+      !/network|fetch|timed out|abort|failed|connection|socket|dns/i.test(detail)
+    ) {
+      throw new ApiError(`Error al enviar la solicitud: ${detail}`, 0);
+    }
     throw new ApiError('No se pudo conectar con el servidor. Verifica tu conexión.', 0);
   }
 

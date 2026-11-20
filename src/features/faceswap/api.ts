@@ -1,3 +1,5 @@
+import { File } from 'expo-file-system';
+
 import { apiClient } from '@/lib/api-client';
 import { ENDPOINTS } from '@/lib/endpoints';
 import type {
@@ -55,13 +57,14 @@ export async function createFaceSwapJob({
   templateId,
 }: CreateFaceSwapPayload): Promise<FaceSwapCreateResponse> {
   const formData = new FormData();
-  const safeName = photoName || `selfie-${Date.now()}.jpg`;
-  const safeType = photoMimeType || 'image/jpeg';
+  const photoFile = new File(photoUri);
+  const safeName = photoName || photoFile.name || `selfie-${Date.now()}.jpg`;
+  const safeType = photoMimeType || photoFile.type || 'image/jpeg';
 
   formData.append('photo', {
-    uri: photoUri,
     name: safeName,
     type: safeType,
+    bytes: () => photoFile.bytes(),
   } as unknown as Blob);
   formData.append('template_id', templateId);
   formData.append('consent', 'true');
